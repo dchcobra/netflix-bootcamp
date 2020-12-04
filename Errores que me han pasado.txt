@@ -1,0 +1,34 @@
+IMPORTANTE TRABAJAR EN LA VERSION JDK 8
+
+ECLIPSE NO DETECTABA EL PROYECTO
+
+(NO ES UN ERROR GRAVE) NO ME DETECTABA LAS DEPENDENCIAS
+- He reiniciado eclipse y una vez que lo he iniciado le he dado a forzar actualizaciones (Maven)
+
+PAQUETE QUE NO DETECTABA ECLIPSE (Ocurre en las versiones que no son JDK 8)
+- He modificado el nombre del paquete del main
+com.everis.d4i.tutorial.com.everis.d4i.tutorial
+
+ESTABLECER LA CONEXION CON LA BASE DE DATOS
+ - Mi usuario root no tenia la contraseña root como esta configurado en el proyecto (XAMPP)
+https://www.youtube.com/watch?v=HMDSPX1qN-M
+
+
+ME DEVOLVIA UN ERROR SOBRE EL @BEAN (entitymanagerfactory-)
+ - He añadido la siguiente dependencia en el pom.xml
+
+https://stackoverflow.com/questions/47503046/error-creating-bean-with-name-entitymanagerfactory-when-add-spring-boot-jpa-de
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+</dependency>
+
+WEB SECURITY FALLO EN http://localhost:8088/netflix/v1/swagger-ui.html (Unable to infer base url.)
+https://stackoverflow.com/questions/47425048/why-does-springfox-swagger2-ui-tell-me-unable-to-infer-base-url
+ - Se ha puesto que el proyecto trabaje sobre JDK 8 y se han solucionado todos los fallos que teniamos hasta el momento
+(Windows --> preferences --> Java --> compiler --> 1.8)
+(Windows --> preferences --> Java --> installed jre--> escoger el que esta en programfiles --> java --> 1.8)
+
+ERROR : Parameter value [2] did not match expected type [com.cityBike.app.model.User
+ A la hora de hacer la consulta estaba llamando a una entidad en vez de al campo de esa entidad (Languje Hibernate)
+ - En el repositorio hemos cambiado el nombre a findByTvShow_Id (findByTvShowId) y de esta manera le decimos que mire al ID
