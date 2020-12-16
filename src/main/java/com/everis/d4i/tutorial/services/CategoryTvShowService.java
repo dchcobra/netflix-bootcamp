@@ -9,4 +9,7 @@ public interface CategoryTvShowService {
 
 	List<CategoryTvShowRest> getCategoryTvShowByTvShow(Long tvShowId) throws NetflixException;
 
+	CategoryTvShowRest addCategoryToTvShow(CategoryTvShowRest categoryTvShowRest) throws NetflixException;
+
+
 }

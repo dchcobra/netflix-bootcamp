@@ -2,7 +2,9 @@ package com.everis.d4i.tutorial.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,11 +36,16 @@ public class Actor implements Serializable {
 	@Column(name = "DATE_OF_BIRTH")
 	private Date dateOfBirth;
 	
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TV_SHOW_ID", nullable = false)
 	private TvShow tvShow;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tvShow")
+	private List<Season> seasons;
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "season")
+	private List<Chapter> chapters;
+
 	public Long getId() {
 		return id;
 	}
@@ -80,6 +88,22 @@ public class Actor implements Serializable {
 
 	public void setTvShow(TvShow tvShow) {
 		this.tvShow = tvShow;
+	}
+
+	public List<Season> getSeason() {
+		return seasons;
+	}
+
+	public void setSeason(List<Season> season) {
+		this.seasons = season;
+	}
+
+	public List<Chapter> getChapters() {
+		return chapters;
+	}
+
+	public void setChapters(List<Chapter> chapters) {
+		this.chapters = chapters;
 	}
 
 }

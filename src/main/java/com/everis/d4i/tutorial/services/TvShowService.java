@@ -2,6 +2,7 @@ package com.everis.d4i.tutorial.services;
 
 import java.util.List;
 
+import com.everis.d4i.tutorial.exceptions.InternalServerErrorException;
 import com.everis.d4i.tutorial.exceptions.NetflixException;
 import com.everis.d4i.tutorial.json.TvShowRest;
 
@@ -11,7 +12,11 @@ public interface TvShowService {
 	
 	TvShowRest getTvShowById(Long id) throws NetflixException;
 
+	TvShowRest getTvShowByName(String firstname) throws NetflixException;
+
 	void deleteTvShowById(Long id) throws NetflixException;
 
-	void updateTvShowName(Long id, String name);
+	TvShowRest updateTvShowName(Long id, String name) throws InternalServerErrorException;
+
+
 }

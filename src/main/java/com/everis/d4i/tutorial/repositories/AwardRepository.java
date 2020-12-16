@@ -12,6 +12,6 @@ import com.everis.d4i.tutorial.entities.Award;
 @Repository
 public interface AwardRepository extends JpaRepository<Award, Long> {
 
-	List<Award> findByTvShow_Id(Long tvShowId);
+	List<Award> findByTvShowId(Long tvShowId);
 
 }

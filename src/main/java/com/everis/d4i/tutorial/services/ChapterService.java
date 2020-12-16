@@ -12,6 +12,6 @@ public interface ChapterService {
 	ChapterRest getChapterByTvShowIdAndSeasonNumberAndChapterNumber(Long tvShowId, short seasonNumber,
 			short chapterNumber) throws NetflixException;
 
-	void updateChapterName(Long id, String name);
+	ChapterRest updateChapterName(Long id, String name) throws NetflixException ;
 
 }

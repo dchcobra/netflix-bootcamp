@@ -25,7 +25,7 @@ public class TvShow implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@Column(name = "NAME")
 	private String name;
 
@@ -53,7 +53,7 @@ public class TvShow implements Serializable {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tvShow")
 	private List<Award> awards;
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -133,5 +133,4 @@ public class TvShow implements Serializable {
 	public void setAwards(List<Award> awards) {
 		this.awards = awards;
 	}
-
 }

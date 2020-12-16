@@ -2,6 +2,7 @@ package com.everis.d4i.tutorial.json;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -14,7 +15,8 @@ public class ActorRest implements Serializable {
 	private String firstName;
 	private String secondName;
 	private Date dateOfBirth;
-	private TvShowRest tvshow;
+	private TvShowRest tvShow;
+	private List<ChapterRest> chapters;
 	
 	public Long getId() {
 		return id;
@@ -47,12 +49,23 @@ public class ActorRest implements Serializable {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-
-	public TvShowRest getTvshow() {
-		return tvshow;
+	
+	public TvShowRest getTvShow() {
+		return tvShow;
 	}
 
-	public void setTvshow(TvShowRest tvshow) {
-		this.tvshow = tvshow;
-	}	
+	public void setTvShow(TvShowRest tvShow) {
+		this.tvShow = tvShow;
+	}
+
+	public List<ChapterRest> getChapters() {
+		return chapters;
+	}
+
+	public void setChapters(List<ChapterRest> chapters) {
+		this.chapters = chapters;
+	}
+	
+	
+
 }

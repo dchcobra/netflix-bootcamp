@@ -7,8 +7,6 @@ import com.everis.d4i.tutorial.json.AwardRest;
 
 public interface AwardService {
 
-	//List<AwardRest> getAwards() throws NetflixException;
-
 	List<AwardRest> getAwardsByTvShow(Long tvShowId) throws NetflixException;
 
 }

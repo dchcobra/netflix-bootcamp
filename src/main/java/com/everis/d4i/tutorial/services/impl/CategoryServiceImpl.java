@@ -28,7 +28,12 @@ public class CategoryServiceImpl implements CategoryService {
 	private ModelMapper modelMapper = new ModelMapper();
 
 	public List<CategoryRest> getCategories() throws NetflixException {
-
+		try {
+			categoryRepository.findAll();
+		} catch (final Exception e) {
+			LOGGER.error(ExceptionConstants.INTERNAL_SERVER_ERROR, e);
+			throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
+		}		
 		return categoryRepository.findAll().stream().map(category -> modelMapper.map(category, CategoryRest.class))
 				.collect(Collectors.toList());
 

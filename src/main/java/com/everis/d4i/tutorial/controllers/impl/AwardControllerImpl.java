@@ -24,25 +24,15 @@ import com.everis.d4i.tutorial.utils.constants.RestConstants;
 public class AwardControllerImpl implements AwardController {
 	
 	@Autowired
-	private AwardService AwardService;
+	private AwardService awardService;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public NetflixResponse<List<AwardRest>> getAwardsByTvShow(@PathVariable(value = "tvShowId", name = "tvShowId") int tvShowId ) throws NetflixException {
+	public NetflixResponse<List<AwardRest>> getAwardsByTvShow(@PathVariable(value = "tvShowId", name = "tvShowId") int tvShowId )
+			throws NetflixException {
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
-				AwardService.getAwardsByTvShow(Long.valueOf(tvShowId)));
-	}
-/*
-	@Override
-	@ResponseStatus(HttpStatus.OK)
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public NetflixResponse<List<AwardRest>> getAwards() throws NetflixException {
-		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
-				AwardService.getAwards());
-	}
-
- */
-	
+				awardService.getAwardsByTvShow(Long.valueOf(tvShowId)));
+	}	
 }
 	
